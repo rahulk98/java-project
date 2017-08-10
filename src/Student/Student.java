@@ -95,10 +95,4 @@ public class Student implements Serializable{
 		System.out.println("Name:" + name + "\n" + "Roll No:" + roll_No + "\n" + "dob:" + dateOnly.format(dob) + "\n" + "Campus:" + campus);
 		
 	}
-	public static void main(String[] args) {
-		Student s = new Student();
-		s.newStudent();
-		s.writeFile();
-		s.readFile();
-	}
 }
