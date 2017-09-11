@@ -44,6 +44,8 @@ public class PersonalDetail implements Serializable{
 			Scanner sc = new Scanner(System.in);
 			address = sc.next();
 			email = sc.next();
+			String s = "@";
+			if(!email.contains(s)) throw new InvalidEmailException();
 			phno = sc.nextLong();
 			int length=0; 
 			long n = phno;
@@ -55,10 +57,11 @@ public class PersonalDetail implements Serializable{
 			
 	}catch(InvalidPhoneNumberException e) {
 		System.out.println(e);
-		System.out.println("Enter phone number again");
-		Scanner sc = new Scanner(System.in);
-		phno = sc.nextLong();
+		System.exit(0);
 			
+	}catch(InvalidEmailException n) {
+		System.out.println(n);
+		System.exit(0);
 	}
 	}
 	public void readFile() {

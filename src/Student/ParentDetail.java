@@ -56,23 +56,26 @@ public class ParentDetail implements Serializable{
 		return fOccupation;
 		
 	}
-	public void newParentDetail(Student s) {
+	public void newParentDetail() {
 		try {	
 			System.out.println("Enter father's name,mother's name, Email, father's occupation, Phone no");
 			Scanner sc = new Scanner(System.in);
 			this.fName = sc.next();
 			this.mName = sc.next();
 			this.PEmail = sc.next();
+			String s = "@";
+			if(!PEmail.contains(s)) throw new InvalidEmailException();
 			fOccupation = sc.next();
 			pPhno = sc.next();
 			if(pPhno.length() != 10) throw new InvalidPhoneNumberException();
 			 
 	}catch(InvalidPhoneNumberException e) {
 		System.out.println(e);
-		System.out.println("Enter phone no again");
-		Scanner sc = new Scanner(System.in);
-		pPhno = sc.next();
+		System.exit(0);
 			
+	}catch(InvalidEmailException n) {
+		System.out.println(n);
+		System.exit(0);
 	}
 	}
 	public void readFile() {
