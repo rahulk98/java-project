@@ -58,14 +58,18 @@ public class ParentDetail implements Serializable{
 	}
 	public void newParentDetail() {
 		try {	
-			System.out.println("Enter father's name,mother's name, Email, father's occupation, Phone no");
+			System.out.println("Enter father's name");
 			Scanner sc = new Scanner(System.in);
 			this.fName = sc.next();
+			System.out.println("Enter mother's name");
 			this.mName = sc.next();
+			System.out.println("Enter father's email");
 			this.PEmail = sc.next();
 			String s = "@";
 			if(!PEmail.contains(s)) throw new InvalidEmailException();
+			System.out.println("Enter father's occupation");
 			fOccupation = sc.next();
+			System.out.println("Enter parents phone number");
 			pPhno = sc.next();
 			if(pPhno.length() != 10) throw new InvalidPhoneNumberException();
 			 
@@ -113,5 +117,11 @@ public class ParentDetail implements Serializable{
 	}
 	public void printParentDetails() {
 		System.out.println("Father's Name:" + fName + "\n" +"Mother's Name:" + mName + "\n" + "Parent Email:" + PEmail + "\n" + "Parent Phone no:" + pPhno +"\n" + "Father's Occupation:" + fOccupation);
+	}
+	public static void main(String[] args){
+		ParentDetail p = new ParentDetail();
+		p.newParentDetail();
+		p.writeFile();
+		p.readFile();
 	}
 }

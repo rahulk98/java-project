@@ -12,20 +12,20 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 public class Student implements Serializable{
 	String name;
-	String roll_No;
+	String rollNo;
 	Date dob;
 	String campus;
 	
 	public Student(){
 		name = "";
-		roll_No = "";
+		rollNo = "";
 		Calendar cal = Calendar.getInstance();
 	    cal.set(2016, 1, 1);
 		dob = cal.getTime();
 	}
 	public Student(String name, String roll, Date dob, String campus) {
 		this.name = name;
-		this.roll_No = roll;
+		this.rollNo = roll;
 		this.dob = dob;
 		this.campus = campus;
 	}
@@ -36,17 +36,18 @@ public class Student implements Serializable{
 		return dob;
 	}
 	public String getRollNo() {
-		return roll_No;
+		return rollNo;
 	}
 	public String getCampus() {
 		return campus;
 	}
 	public void newStudent() {
-		System.out.println("Enter Name, rollno ,date of birth and campus");
+		System.out.println("Enter Name");
 		Scanner s = new Scanner(System.in);
 		this.name = s.next();
-		this.roll_No = s.next();
-		System.out.println("Enter day , month , year");
+		System.out.println("Enter roll no");
+		this.rollNo = s.next();
+		System.out.println("Enter date of birth in day , month , year format");
 		int day, month, year;
 		day = s.nextInt();
 		month = s.nextInt();
@@ -54,46 +55,52 @@ public class Student implements Serializable{
 		Calendar cal = Calendar.getInstance();
 		cal.set(year, month-1, day);
 		this.dob = cal.getTime();
+		System.out.println("Enter campus");
 		this.campus = s.next();
 	}
-	public void readFile() {
+	public static Student readFile() {
 		try {
-			FileInputStream fin = new FileInputStream("Student.ser");
-			ObjectInputStream ois = new ObjectInputStream(fin);
-			Student s = (Student) ois.readObject();
-			this.name = s.getName();
-			this.roll_No = s.getRollNo();
-			this.dob = s.getDate();
-			this.campus = s.getCampus();
-			this.printDetails();
-			fin.close();
-		}catch (FileNotFoundException fnf){
-			System.out.println(fnf);
-			
-		}catch (IOException ioe) {
-			System.out.println(ioe);
-		}catch (ClassNotFoundException cnf) {
-			System.out.println(cnf);
+			FileInputStream f = new FileInputStream("Student.ser");
+			ObjectInputStream o = new ObjectInputStream(f);
+			Student st = (Student)o.readObject();
+			Student s = new Student(st.getName(), st.getRollNo(), st.getDate(), st.getCampus());
+			return s;
 		}
+		
+		catch(FileNotFoundException fof) {
+			System.out.println("File not found!");
+		}
+		
+		catch(IOException ioe) {
+			System.out.println("File may be corrupt!");
+		}
+		
+		catch(ClassNotFoundException cnf) {
+			System.out.println("Class not found!");
+		}
+		return null;
 	}
-	public void writeFile() {
+	public static void writeFile(Student st) {
 		try {
-			FileOutputStream fout = new FileOutputStream("Student.ser");
-			ObjectOutputStream oos = new ObjectOutputStream(fout);
-			Student s = new Student(this.name, this.roll_No, this.dob, this.campus);
-			oos.writeObject(s);
-			fout.close();
-		}catch (FileNotFoundException fnf){
-			System.out.println(fnf);
-			
-		}catch (IOException ioe) {
-			System.out.println(ioe);
+			FileOutputStream f = new FileOutputStream("Student.ser", true);
+			ObjectOutputStream o = new ObjectOutputStream(f);
+			Student s = new Student(st.name,st.rollNo,st.dob,st.campus);
+			o.writeObject(s);
 		}
+		
+		catch(FileNotFoundException fof) {
+			System.out.println("File not found!");
+		}
+		
+		catch(IOException ioe) {
+			System.out.println("File may be corrupt!");
+		}	
 	}
 	public void printDetails() {
 		SimpleDateFormat dateOnly = new SimpleDateFormat("dd/MM/yyyy");
-		System.out.println("Name:" + name + "\n" + "Roll No:" + roll_No + "\n" + "dob:" + dateOnly.format(dob) + "\n" + "Campus:" + campus);
-		
+		System.out.println("Name:" + name + "\n" + "Roll No:" + rollNo + "\n" + "dob:" + dateOnly.format(dob) + "\n" + "Campus:" + campus);
+
 	}
+
 	
 }
