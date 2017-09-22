@@ -30,5 +30,7 @@ public class Dues {
         System.out.println("Enter remarks");
         remark = s.next();
     }
-
+    public  String toString(){
+        return "Fine:" + fine + "\nRemarks:" + remark;
+    }
 }

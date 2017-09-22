@@ -18,6 +18,9 @@ public class Library {
         cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH)+1, cal.get(Calendar.DAY_OF_MONTH));
         dueDate = cal.getTime();
     }
+    public Dues getDue(){
+        return due;
+    }
     public Library(Dues due, BookClass book){
         this.due = due;
         this.book = book;
@@ -28,8 +31,8 @@ public class Library {
         dueDate = cal.getTime();
     }
     public void extendDueDate(){
-    if(issueNo<=2){
-        System.out.println("Cannot extend any longer.Please return immeadiately to avoid fine");
+    if(issueNo>=2){
+        System.out.println("Cannot extend any longer.Please return immediately to avoid fine");
     }
     else{
         issueNo++;
@@ -41,7 +44,7 @@ public class Library {
     }
     public String toString(){
         SimpleDateFormat dateOnly = new SimpleDateFormat("dd/MM/yyyy");
-        return book.toString() + "\nIssue date" + dateOnly.format(issue) + "\nDue date:" + dateOnly.format(dueDate) + "\nFine(if any):" + due.getFine();
+        return book.toString() + "\nIssue date" + dateOnly.format(issue) + "\nDue date:" + dateOnly.format(dueDate) + "\nFine(if any):" + due.getFine() +"₹";
 
     }
     public void borrowBook(){
@@ -52,5 +55,6 @@ public class Library {
     public void addFine(){
         due.addDues();
     }
+
 
 }
