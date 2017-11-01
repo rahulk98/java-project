@@ -19,6 +19,10 @@ public class EndSemesterMark implements Mark{
 
     }
     public void printMark(){
-        System.out.println("end semester marks" + mark);
+        System.out.println("End Semester marks:" + mark);
+    }
+
+    public String toString(){
+        return "End Semester marks:" + this.mark + '\n';
     }
 }

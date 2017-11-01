@@ -9,13 +9,14 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Scanner;
 
-public class ParentDetail implements Serializable{
+public class ParentDetail  extends PersonalDetail  implements Serializable {
 	String fName;
 	String mName;
 	String PEmail;
 	String pPhno;
 	String fOccupation;
 	public ParentDetail() {
+		super();
 		fName = "";
 		mName = "";
 		PEmail = "";
@@ -23,6 +24,7 @@ public class ParentDetail implements Serializable{
 		String fOccupation = "";
 	}
 	public ParentDetail(String f, String m, String em, String phno, String fo) {
+		super();
 		this.fName = f;
 		this.mName = m;
 		this.PEmail = em;
@@ -57,7 +59,9 @@ public class ParentDetail implements Serializable{
 		
 	}
 	public void newParentDetail() {
-		try {	
+		try {
+			this.newPersonalDetail();
+			System.out.println("Parent Details");
 			System.out.println("Enter father's name");
 			Scanner sc = new Scanner(System.in);
 			this.fName = sc.next();
@@ -82,46 +86,22 @@ public class ParentDetail implements Serializable{
 		System.exit(0);
 	}
 	}
-	public void readFile() {
-		try {
-			FileInputStream fin = new FileInputStream("ParentDetail.ser");
-			ObjectInputStream ois = new ObjectInputStream(fin);
-			ParentDetail p = (ParentDetail) ois.readObject();
-			this.setParentDetail(p.fName, p.mName, p.PEmail, p.pPhno, p.fOccupation);
-			this.printParentDetails();
-			fin.close();
-		}catch (FileNotFoundException fnf){
-			System.out.println(fnf);
-			
-		}catch (IOException ioe) {
-			System.out.println(ioe);
-		}catch (ClassNotFoundException cnf) {
-			System.out.println(cnf);
-		
-		}
-	}
-	public void writeFile() {
-		try {
-			FileOutputStream fout = new FileOutputStream("ParentDetail.ser");
-			ObjectOutputStream oos = new ObjectOutputStream(fout);
-			ParentDetail p = new ParentDetail(this.fName, this.mName, this.PEmail, this.pPhno, this.fOccupation);
-			oos.writeObject(p);
-			fout.close();
-		}catch (FileNotFoundException fnf){
-			System.out.println(fnf);
-			
-		}catch (IOException ioe) {
-			System.out.println(ioe);
-		
-		}
-	}
+
 	public void printParentDetails() {
+		System.out.println("Parent Details");
+		System.out.println("--------------");
 		System.out.println("Father's Name:" + fName + "\n" +"Mother's Name:" + mName + "\n" + "Parent Email:" + PEmail + "\n" + "Parent Phone no:" + pPhno +"\n" + "Father's Occupation:" + fOccupation);
 	}
+	public void printAll(){
+		this.printDetails();
+		this.printPDetail();
+		this.printParentDetails();
+
+
+	}
 	public static void main(String[] args){
-		ParentDetail p = new ParentDetail();
-		p.newParentDetail();
-		p.writeFile();
-		p.readFile();
+		ParentDetail d = new ParentDetail();
+		d.newParentDetail();
+		d.printAll();
 	}
 }

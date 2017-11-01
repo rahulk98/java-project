@@ -42,6 +42,7 @@ public class Student implements Serializable{
 		return campus;
 	}
 	public void newStudent() {
+		System.out.println("Enter Student data");
 		System.out.println("Enter Name");
 		Scanner s = new Scanner(System.in);
 		this.name = s.next();
@@ -58,49 +59,22 @@ public class Student implements Serializable{
 		System.out.println("Enter campus");
 		this.campus = s.next();
 	}
-	public static Student readFile() {
-		try {
-			FileInputStream f = new FileInputStream("Student.ser");
-			ObjectInputStream o = new ObjectInputStream(f);
-			Student st = (Student)o.readObject();
-			Student s = new Student(st.getName(), st.getRollNo(), st.getDate(), st.getCampus());
-			return s;
-		}
-		
-		catch(FileNotFoundException fof) {
-			System.out.println("File not found!");
-		}
-		
-		catch(IOException ioe) {
-			System.out.println("File may be corrupt!");
-		}
-		
-		catch(ClassNotFoundException cnf) {
-			System.out.println("Class not found!");
-		}
-		return null;
-	}
-	public static void writeFile(Student st) {
-		try {
-			FileOutputStream f = new FileOutputStream("Student.ser", true);
-			ObjectOutputStream o = new ObjectOutputStream(f);
-			Student s = new Student(st.name,st.rollNo,st.dob,st.campus);
-			o.writeObject(s);
-		}
-		
-		catch(FileNotFoundException fof) {
-			System.out.println("File not found!");
-		}
-		
-		catch(IOException ioe) {
-			System.out.println("File may be corrupt!");
-		}	
-	}
+
 	public void printDetails() {
+		System.out.println("Student Details");
+		System.out.println("---------------");
 		SimpleDateFormat dateOnly = new SimpleDateFormat("dd/MM/yyyy");
 		System.out.println("Name:" + name + "\n" + "Roll No:" + rollNo + "\n" + "dob:" + dateOnly.format(dob) + "\n" + "Campus:" + campus);
 
 	}
-
-	
+	public Student getStudentObject(){
+		Student s = new Student(this.rollNo, this.name, this.dob, this.campus);
+		return s;
+	}
+	public void setStudentObject(Student s){
+		this.rollNo = s.getRollNo();
+		this.name = s.getName();
+		this.campus = s.getCampus();
+		this.dob = s.getDate();
+	}
 }

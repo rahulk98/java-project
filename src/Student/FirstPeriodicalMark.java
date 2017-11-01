@@ -21,4 +21,7 @@ public class FirstPeriodicalMark implements Mark{
     public void printMark(){
         System.out.println("First periodical marks" + mark);
     }
+    public String toString(){
+        return "First Periodical Mark:" + this.mark + '\n';
+    }
 }

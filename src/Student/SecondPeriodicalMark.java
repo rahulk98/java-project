@@ -21,4 +21,8 @@ public class SecondPeriodicalMark implements Mark{
     public void printMark(){
         System.out.println("Second periodical marks" + mark);
     }
+
+    public String toString(){
+        return "Second Periodical Mark:" + this.mark + '\n';
+    }
 }

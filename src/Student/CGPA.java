@@ -7,9 +7,9 @@ public class CGPA {
         CGPA(){
             cgpa= 0;
         }
-        public void setGpa(ArrayList<SGPA> s){
-            for(SGPA i:s) {
-                cgpa += i.getSgpa();
+        public void setGpa(ArrayList<Semester> s){
+            for(Semester i:s) {
+                cgpa += i.sgpa.getSgpa();
             }
             cgpa /= cgpa/s.size();
         }
@@ -17,7 +17,7 @@ public class CGPA {
             return cgpa;
         }
         public String toString(){
-            return "\nCumulative GPA:" + cgpa;
+            return '\n' + "Cumulative GPA:" + cgpa;
         }
         public void print(){
             System.out.println(toString());

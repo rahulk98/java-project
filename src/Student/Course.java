@@ -39,7 +39,7 @@ public class Course {
         gpa.setGpa(im, endsem);
     }
     public String toString(){
-        return "Course name:" + courseName + "\nCourse code:" + courseCode + fpm.toString() + spm.toString() + endsem.toString() + im.toString() + cam.toString() + gpa.toString();
+        return "Course name:" + courseName + '\n' + "Course code:" + courseCode + '\n' +fpm.toString() + spm.toString() + endsem.toString() + im.toString() + cam.toString() + gpa.toString();
     }
     public void print() {
         System.out.println(toString());

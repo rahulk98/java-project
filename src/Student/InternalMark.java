@@ -14,7 +14,7 @@ public class InternalMark {
         return mark;
     }
     public String toString(){
-        return "\nInternals:" + mark;
+        return "\nInternals:" + mark + '\n';
     }
     public void printDetail(){
         System.out.println(toString());

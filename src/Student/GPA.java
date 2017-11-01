@@ -17,4 +17,6 @@ public class GPA {
     public void print(){
         System.out.println(toString());
     }
-}
+
+    }
+

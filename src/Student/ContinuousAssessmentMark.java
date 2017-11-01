@@ -24,4 +24,8 @@ public class ContinuousAssessmentMark{
     public void printMark(){
         System.out.println("Continuous assessment marks:" + mark);
     }
+
+    public String toString(){
+        return "Continuous Assessment Mark:" + this.mark + '\n';
+    }
 }
