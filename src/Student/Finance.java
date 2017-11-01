@@ -54,8 +54,8 @@ public class Finance {
     public void printFinacials(){
         System.out.println(this.toString());
     }
-//    public int calculateScholarship(){ after writing scholarship class
-//        return
-//    }
+    public int calculateScholarship(Scholarship s){
+        return fees * s.percent / 100;
+    }
 
 }

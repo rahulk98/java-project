@@ -1,6 +1,6 @@
 package Student;
 
-public class EndSemesterMark {
+public class EndSemesterMark implements Mark{
     int mark;
     public EndSemesterMark(){
         mark = 0;

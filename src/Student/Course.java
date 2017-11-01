@@ -13,6 +13,7 @@ public class Course {
     InternalMark im;
     ContinuousAssessmentMark cam;
     GPA gpa;
+    boolean supply = false;
 
     public Course() {
         fpm = new FirstPeriodicalMark();
@@ -42,6 +43,9 @@ public class Course {
     }
     public void print() {
         System.out.println(toString());
+    }
+    public void addSupply(){
+        supply = true;
     }
 }
 

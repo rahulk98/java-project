@@ -1,6 +1,6 @@
 package Student;
 
-public class FirstPeriodicalMark {
+public class FirstPeriodicalMark implements Mark{
     int mark;
     public FirstPeriodicalMark(){
         mark = 0;
