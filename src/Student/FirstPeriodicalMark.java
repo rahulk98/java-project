@@ -1,5 +1,7 @@
 package Student;
 
+import java.util.Scanner;
+
 public class FirstPeriodicalMark implements Mark{
     int mark;
     public FirstPeriodicalMark(){
@@ -16,6 +18,8 @@ public class FirstPeriodicalMark implements Mark{
     }
     public void addMark(){
         System.out.println("Enter first periodical marks");
+        Scanner s = new Scanner(System.in);
+        this.mark = s.nextInt();
 
     }
     public void printMark(){

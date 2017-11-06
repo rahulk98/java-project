@@ -42,4 +42,5 @@ public class Academics extends CourseDetail{
     public void calculateCGPA(){
         cgpa.setGpa(sems);
     }
+
 }

@@ -41,7 +41,7 @@ public class TestStudentDiary {
             System.out.println("------------------");
             System.out.println("1.Add new student");
             System.out.println("2.Select existing student");
-            System.out.println("3.Print");
+            System.out.println("3.View details");
             System.out.println("4.Write to file");
             System.out.println("5.Read from file");
             System.out.println("6.Exit");
@@ -77,14 +77,15 @@ public class TestStudentDiary {
                            }
                        }
                        int ch3 = -1;
-                    while(ch3!=7){
+                    while(ch3!=8){
                         System.out.println("1.Add academic details");
                         System.out.println("2.Add financial details");
                         System.out.println("3.Add Event");
                         System.out.println("4.Add library details");
                         System.out.println("5.Add attendance");
-                        System.out.println("6.Print details");
-                        System.out.println("7.Exit");
+                        System.out.println("6.Add hostel details");
+                        System.out.println("7.Print details");
+                        System.out.println("8.Exit");
                         ch3 = sc.nextInt();
                         switch(ch3){
                             case 1:int ch4 = -1;
@@ -103,16 +104,113 @@ public class TestStudentDiary {
                                     System.out.println("2.Add Second periodical marks");
                                     System.out.println("3.Add Continuous assessment mark");
                                     System.out.println("4.Add End Sem Mark");
-                                    System.out.println("5.Calculate Internals");
-                                    System.out.println("6.Display SGPA");
-                                    System.out.println("7.print course details");
-                                    System.out.println("8.Print semester details");
-                                    System.out.println("9.Print degree details");
-                                    System.out.println("10.Go back to menu");
+                                    System.out.println("5.Go back to menu");
+                                    ch4 = sc.nextInt();
+                                    switch(ch4){
+                                        case 1:modStud.ac.sems.get(semNo).courses.get(courseIndex).fpm.addMark();
+                                                break;
+                                        case 2:modStud.ac.sems.get(semNo).courses.get(courseIndex).spm.addMark();
+                                                break;
+                                        case 3:modStud.ac.sems.get(semNo).courses.get(courseIndex).cam.addMark();
+                                            modStud.ac.sems.get(semNo).courses.get(courseIndex).CalculateInternal();
+                                            break;
+                                        case 4: modStud.ac.sems.get(semNo).courses.get(courseIndex).endsem.addMark();
+                                            modStud.ac.sems.get(semNo).courses.get(courseIndex).CalculateGPA();
+                                            break;
+//                                        case 5:modStud.ac.sems.get(semNo).courses.get(courseIndex).im.printDetail();
+//                                            break;
+//                                        case 6:modStud.ac.sems.get(semNo).sgpa.print();
+//                                            break;
+//                                        case 7:modStud.ac.sems.get(semNo).courses.get(courseIndex).print();
+//                                                break;
+//                                        case 8:modStud.ac.sems.get(semNo).print();
+//                                            break;
+//                                        case 9:modStud.ac.displayCourse();
+//                                            break;
+
+                                        case 5:break;
+                                    }
 
                                 }
+                                break;
+                            case 2:int ch5 = -1;
+                                    while(ch5 != 6){
+                                        System.out.println("1.Add Fees");
+                                        System.out.println("2.Add Department dues");
+                                        System.out.println("3.Add Scholarship");
+                                        System.out.println("4.Print Financials");
+                                        System.out.println("5.Print Scholarship details");
+                                        System.out.println("6.Go back to menu");
+                                        ch5 = sc.nextInt();
+                                        switch(ch5){
+                                            case 1:modStud.finance.addFinanceDetail();
+                                            break;
+                                            case 2:modStud.finance.department.addDues();
+                                            break;
+                                            case 3:modStud.scholarship.addPercentage();
+                                            break;
+                                            case 4:modStud.finance.printFinacials();
+                                            break;
+                                            case 5:modStud.scholarship.print();
+                                            break;
+                                            case 6:break;
+                                        }
+                                    }
+                                    break;
+                            case 3: modStud.ev.addEvent();
+                            break;
+                            case 4:int ch7 = -1;
+                                    while(ch7 != 5){
+                                        System.out.println();
+                                        System.out.println();
+                                        System.out.println("1.Borrowed book details");
+                                        System.out.println("2.Extend due date");
+                                        System.out.println("3.Add dues");
+                                        System.out.println("4.View dues");
+                                        System.out.println("5.Go back to menu");
+                                        ch7 = sc.nextInt();
+                                        switch(ch7){
+                                            case 1:System.out.println(modStud.lib.toString());
+                                            break;
+                                            case 2:modStud.lib.extendDueDate();
+                                            break;
+                                            case 3:modStud.lib.addFine();
+                                            break;
+                                            case 4:System.out.println(modStud.lib.getDue());
+                                            break;
+                                            case 5:break;
+                                        }
+
+                                    }
+                                    break;
+                            case 5:int ch8 = -1;
+                                    while(ch8 != ){
+                                        System.out.println();
+                                        System.out.println("1.Add attendance");
+                                        System.out.println("2.View attendance");
+                                        System.out.println("3.Exit");
+                                        ch8 = sc.nextInt();
+                                        switch(ch8){
+                                            case 1:Attendance a = new Attendance();
+                                            a.addAttendance();
+                                            modStud.att.add(a);
+                                            break;
+                                            case 2:for(Attendance i:modStud.att){
+                                                i.print();
+                                            }
+                                            break;
+                                            case 3:break;
+                                        }
+                                    }
+                            case 6:modStud.h.addRecords();
+                            break;
+                            case 7:modStud.print();
+                            break;
+                            case 8:break;
+
                         }
                     }
+                case 3:
             }
         }
     }

@@ -47,11 +47,7 @@ public class Library {
         return book.toString() + "\nIssue date" + dateOnly.format(issue) + "\nDue date:" + dateOnly.format(dueDate) + "\nFine(if any):" + due.getFine() +"₹";
 
     }
-    public void borrowBook(){
-        BookClass b = new BookClass();
-        b.addBook();
-        this.book = b;
-    }
+
     public void addFine(){
         due.addDues();
     }

@@ -16,7 +16,7 @@ public class Attendance {
         this.att = true;
     }
     public String toString(){
-        return " " + date + "\n" + att + "\n";
+        return " " + date + "\t" + att + "\n";
     }
     public void print(){
         System.out.println(this.toString());

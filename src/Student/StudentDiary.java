@@ -12,12 +12,18 @@ public class StudentDiary {
     Finance finance;
     Library lib;
     Club c;
+    Scholarship scholarship;
+    Event ev;
+    Hostel h;
     public StudentDiary(){
         pd = new ParentDetail();
         ac = new Academics();
         att = new ArrayList<Attendance>();
         finance = new Finance();
         lib = new Library();
+        scholarship = new Scholarship();
+        ev = new Event();
+        h = new Hostel();
     }
     public void addStudentDetails(){
         pd.newParentDetail();
@@ -38,5 +44,14 @@ public class StudentDiary {
     }
     public void addFinancialDetails(){
         finance.addFinanceDetail();
+    }
+    public void print(){
+        pd.printParentDetails();
+        ac.print();
+        finance.printFinacials();
+        System.out.println(lib.toString());
+        c.print();
+        ev.print();
+        h.print();
     }
 }
