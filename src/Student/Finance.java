@@ -1,8 +1,9 @@
 package Student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Finance {
+public class Finance implements Serializable {
     Dues library;
     Dues department;
     int fees;
@@ -51,7 +52,7 @@ public class Finance {
     public String toString(){
         return "Fee amount:" + fees + "\nCaution Deposit:" + cd + library.toString() + department.toString();
     }
-    public void printFinacials(){
+    public void printFinancials(){
         System.out.println(this.toString());
     }
     public int calculateScholarship(Scholarship s){

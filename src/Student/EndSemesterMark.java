@@ -1,6 +1,8 @@
 package Student;
 
-public class EndSemesterMark implements Mark{
+import java.io.Serializable;
+
+public class EndSemesterMark implements Mark, Serializable{
     int mark;
     public EndSemesterMark(){
         mark = 0;

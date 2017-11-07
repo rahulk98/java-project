@@ -1,7 +1,8 @@
 package Student;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Semester {
+public class Semester implements Serializable {
     int no;
     ArrayList<Course> courses;
     SGPA sgpa;

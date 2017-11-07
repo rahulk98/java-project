@@ -1,6 +1,7 @@
 package Student;
+import java.io.Serializable;
 import java.util.Scanner;
-public class CourseDetail {
+public class CourseDetail implements Serializable {
     String degree;
     String branch;
     String batch;

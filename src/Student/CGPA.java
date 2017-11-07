@@ -1,8 +1,9 @@
 package Student;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CGPA {
+public class CGPA implements Serializable {
         float cgpa;
         CGPA(){
             cgpa= 0;

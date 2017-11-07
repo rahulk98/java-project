@@ -1,8 +1,10 @@
 package Student;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Academics extends CourseDetail{
+public class Academics extends CourseDetail implements Serializable {
     ArrayList<Semester> sems;
     CGPA cgpa;
     public Academics(){
@@ -14,9 +16,16 @@ public class Academics extends CourseDetail{
         this.addCourseDetail();
     }
     public void addSem(){
+        Scanner sc = new Scanner(System.in);
         Semester s = new Semester(this.sems.size()+1);
-        s.addCourse();
-        this.sems.add(s);
+
+        System.out.println("Enter no of courses");
+        int c = sc.nextInt();
+        int i = 0;
+        while(i<c){
+            s.addCourse();
+            i++;
+        }this.sems.add(s);
     }
 
     @Override
@@ -33,12 +42,7 @@ public class Academics extends CourseDetail{
         System.out.println(this.toString());
         System.out.println(cgpa.toString());
     }
-    public static void main(String[] args){
-        Academics a = new Academics();
-        a.addCDetail();
-        a.addSem();
-        a.print();
-    }
+
     public void calculateCGPA(){
         cgpa.setGpa(sems);
     }

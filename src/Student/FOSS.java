@@ -1,8 +1,9 @@
 package Student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class FOSS implements Club{
+public class FOSS implements Club, Serializable{
     Student s;
     boolean member;
     String team;

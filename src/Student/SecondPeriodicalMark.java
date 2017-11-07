@@ -1,6 +1,7 @@
 package Student;
 
-public class SecondPeriodicalMark implements Mark{
+import java.io.Serializable;
+public class SecondPeriodicalMark implements Mark, Serializable{
     int mark;
     public SecondPeriodicalMark(){
         mark = 0;

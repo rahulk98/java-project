@@ -1,8 +1,9 @@
 package Student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Hostel {
+public class Hostel implements Serializable {
     String hostelName;
     int roomNo;
     public void addRecords(){

@@ -2,9 +2,10 @@ package Student;
 
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class BookClass {
+public class BookClass implements Serializable {
     String bookName;
     String author;
     public BookClass(){

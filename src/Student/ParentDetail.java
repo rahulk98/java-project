@@ -1,11 +1,5 @@
 package Student;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -99,9 +93,5 @@ public class ParentDetail  extends PersonalDetail  implements Serializable {
 
 
 	}
-	public static void main(String[] args){
-		ParentDetail d = new ParentDetail();
-		d.newParentDetail();
-		d.printAll();
-	}
+
 }

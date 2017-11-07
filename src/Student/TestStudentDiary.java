@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TestStudentDiary {
-    public void writefile(ArrayList<StudentDiary> sd){
+    public static void writeFile(ArrayList<StudentDiary> sd){
         try{
             FileOutputStream f = new FileOutputStream("StudentDiary.ser");
             ObjectOutputStream oos = new ObjectOutputStream(f);
@@ -19,7 +19,7 @@ public class TestStudentDiary {
         }
 
     }
-    public ArrayList<StudentDiary> readfile(){
+    public static ArrayList<StudentDiary> readfile(){
         ArrayList<StudentDiary> sd = new ArrayList<StudentDiary>();
         try{
             FileInputStream f = new FileInputStream("StudentDiary.ser");
@@ -116,18 +116,8 @@ public class TestStudentDiary {
                                             break;
                                         case 4: modStud.ac.sems.get(semNo).courses.get(courseIndex).endsem.addMark();
                                             modStud.ac.sems.get(semNo).courses.get(courseIndex).CalculateGPA();
+                                            modStud.ac.calculateCGPA();
                                             break;
-//                                        case 5:modStud.ac.sems.get(semNo).courses.get(courseIndex).im.printDetail();
-//                                            break;
-//                                        case 6:modStud.ac.sems.get(semNo).sgpa.print();
-//                                            break;
-//                                        case 7:modStud.ac.sems.get(semNo).courses.get(courseIndex).print();
-//                                                break;
-//                                        case 8:modStud.ac.sems.get(semNo).print();
-//                                            break;
-//                                        case 9:modStud.ac.displayCourse();
-//                                            break;
-
                                         case 5:break;
                                     }
 
@@ -149,7 +139,7 @@ public class TestStudentDiary {
                                             break;
                                             case 3:modStud.scholarship.addPercentage();
                                             break;
-                                            case 4:modStud.finance.printFinacials();
+                                            case 4:modStud.finance.printFinancials();
                                             break;
                                             case 5:modStud.scholarship.print();
                                             break;
@@ -184,7 +174,7 @@ public class TestStudentDiary {
                                     }
                                     break;
                             case 5:int ch8 = -1;
-                                    while(ch8 != ){
+                                    while(ch8 != 3){
                                         System.out.println();
                                         System.out.println("1.Add attendance");
                                         System.out.println("2.View attendance");
@@ -210,7 +200,52 @@ public class TestStudentDiary {
 
                         }
                     }
-                case 3:
+                case 3:int ch9 = -1;
+                    System.out.println("Enter roll no of student whose details should be printed");
+                    roll = sc.next();
+                    modStud = new StudentDiary();
+
+                    for(StudentDiary i:sd){
+                        if(i.pd.getRollNo().equals(roll)) {
+                            modStud = i;
+                            break;
+                        }
+                    }
+                        while(ch9!=7){
+                            System.out.println("1.Print student details");
+                            System.out.println("2.Print academic details");
+                            System.out.println("3.Print financial details");
+                            System.out.println("4.Print attendance");
+                            System.out.println("5.Print semester details");
+                            System.out.println("6.Print all details");
+                            System.out.println("7.Exit");
+                            ch9 = sc.nextInt();
+                            switch(ch9){
+                                case 1:modStud.pd.printParentDetails();
+                                break;
+                                case 2:modStud.ac.print();
+                                break;
+                                case 3:modStud.finance.printFinancials();
+                                break;
+                                case 4:for(Attendance i : modStud.att)
+                                            i.print();
+                                break;
+                                case 5:for(Semester i : modStud.ac.sems)
+                                        i.print();
+                                break;
+                                case 6:modStud.print();
+                                break;
+                                case 7:break;
+                            }
+
+                        }
+                        break;
+                case 4: writeFile(sd);
+                break;
+                case 5: sd = readfile();
+                break;
+                case 6:
+                    break;
             }
         }
     }

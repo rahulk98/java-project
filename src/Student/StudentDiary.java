@@ -1,11 +1,11 @@
 package Student;
 
-import jdk.nashorn.internal.runtime.regexp.joni.ScanEnvironment;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class StudentDiary {
+public class StudentDiary implements Serializable {
     ParentDetail pd;
     Academics ac;
     ArrayList<Attendance> att;
@@ -32,23 +32,18 @@ public class StudentDiary {
         ac.addCDetail();
         Scanner s = new Scanner(System.in);
 
-        System.out.println("Enter no of courses");
-        int c = s.nextInt();
-        int i = 0;
+
         ac.addSem();
 
-        while(i<c-1){
-            ac.sems.get(ac.sems.size()).addCourse();
-            i++;
-        }
+
     }
     public void addFinancialDetails(){
         finance.addFinanceDetail();
     }
     public void print(){
-        pd.printParentDetails();
+        pd.printAll();
         ac.print();
-        finance.printFinacials();
+        finance.printFinancials();
         System.out.println(lib.toString());
         c.print();
         ev.print();

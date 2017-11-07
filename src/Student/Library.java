@@ -1,10 +1,12 @@
 package Student;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Library {
+public class Library implements Serializable
+{
     Dues due;
     Date issue, dueDate;
     int issueNo=0;

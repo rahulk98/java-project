@@ -1,8 +1,9 @@
 package Student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class FirstPeriodicalMark implements Mark{
+public class FirstPeriodicalMark implements Mark, Serializable{
     int mark;
     public FirstPeriodicalMark(){
         mark = 0;

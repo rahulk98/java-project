@@ -1,8 +1,9 @@
 package Student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class ContinuousAssessmentMark{
+public class ContinuousAssessmentMark implements Serializable {
     int mark;
     public ContinuousAssessmentMark(){
         mark = 0;

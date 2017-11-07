@@ -1,8 +1,9 @@
 package Student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class BIOS {
+public class BIOS implements Serializable, Club {
     Student s;
     boolean member;
     String team;

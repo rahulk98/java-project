@@ -1,8 +1,9 @@
 package Student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Scholarship {
+public class Scholarship implements Serializable {
     int percent;
 
     public Scholarship(){
