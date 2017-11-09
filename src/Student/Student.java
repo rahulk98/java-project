@@ -45,9 +45,9 @@ public class Student implements Serializable{
 		System.out.println("Enter Student data");
 		System.out.println("Enter Name");
 		Scanner s = new Scanner(System.in);
-		this.name = s.next();
+		this.name = s.nextLine();
 		System.out.println("Enter roll no");
-		this.rollNo = s.next();
+		this.rollNo = s.nextLine();
 		System.out.println("Enter date of birth in day , month , year format");
 		int day, month, year;
 		day = s.nextInt();
@@ -67,14 +67,5 @@ public class Student implements Serializable{
 		System.out.println("Name:" + name + "\n" + "Roll No:" + rollNo + "\n" + "dob:" + dateOnly.format(dob) + "\n" + "Campus:" + campus);
 
 	}
-	public Student getStudentObject(){
-		Student s = new Student(this.rollNo, this.name, this.dob, this.campus);
-		return s;
-	}
-	public void setStudentObject(Student s){
-		this.rollNo = s.getRollNo();
-		this.name = s.getName();
-		this.campus = s.getCampus();
-		this.dob = s.getDate();
-	}
+
 }

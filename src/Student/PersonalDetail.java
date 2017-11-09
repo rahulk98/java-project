@@ -19,25 +19,7 @@ public class PersonalDetail extends Student implements Serializable{
 		address = "";
 		email = "";
 	}
-	public PersonalDetail(long phno, String add, String email) {
-		this.address = add;
-		this.phno = phno;
-		this.email = email;
-	}
-	public long getPhoneNo() {
-		return phno;
-	}
-	public String getAdd() {
-		return address;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setPersonalDetails(long phno, String address, String email) {
-		this.phno = phno;
-		this.email = email;
-		this.address = address;
-	}
+
 	
 	public void newPersonalDetail() {
 	try {	
@@ -45,7 +27,7 @@ public class PersonalDetail extends Student implements Serializable{
 			System.out.println("Enter student personal details");
 			System.out.println("Enter address");
 			Scanner sc = new Scanner(System.in);
-			address = sc.next();
+			address = sc.nextLine();
 			System.out.println("Enter email");
 			email = sc.next();
 			String s = "@";

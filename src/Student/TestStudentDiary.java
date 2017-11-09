@@ -66,7 +66,9 @@ public class TestStudentDiary {
                                 break;
                             }
                         }
+                    sd.add(s);
                         break;
+
                 case 2:System.out.println("Enter roll no of student whose record should be modified");
                        String roll = sc.next();
                        StudentDiary modStud = new StudentDiary();
@@ -85,26 +87,28 @@ public class TestStudentDiary {
                         System.out.println("5.Add attendance");
                         System.out.println("6.Add hostel details");
                         System.out.println("7.Print details");
-                        System.out.println("8.Exit");
+                        System.out.println("8.Go back to menu");
                         ch3 = sc.nextInt();
                         switch(ch3){
                             case 1:int ch4 = -1;
                                     System.out.println("Enter semester no");
                                     int semNo = sc.nextInt();
+                                    semNo--;
                                     System.out.println("Enter course name");
                                     String cn = sc.next();
                                     int courseIndex=0;
-                                    for(Course i : modStud.ac.sems.get(semNo-1).courses){
+                                    for(Course i : modStud.ac.sems.get(semNo).courses){
                                         if(i.courseName.equals(cn))
                                             break;
                                         courseIndex++;
                                     }
-                                while(ch4!=10){
+                                while(ch4!=6){
                                     System.out.println("1.Add First Periodical Marks");
                                     System.out.println("2.Add Second periodical marks");
                                     System.out.println("3.Add Continuous assessment mark");
                                     System.out.println("4.Add End Sem Mark");
-                                    System.out.println("5.Go back to menu");
+                                    System.out.println("5.Add supply");
+                                    System.out.println("6.Go back to menu");
                                     ch4 = sc.nextInt();
                                     switch(ch4){
                                         case 1:modStud.ac.sems.get(semNo).courses.get(courseIndex).fpm.addMark();
@@ -116,9 +120,12 @@ public class TestStudentDiary {
                                             break;
                                         case 4: modStud.ac.sems.get(semNo).courses.get(courseIndex).endsem.addMark();
                                             modStud.ac.sems.get(semNo).courses.get(courseIndex).CalculateGPA();
+                                            modStud.ac.sems.get(semNo).calculateSGPA();
                                             modStud.ac.calculateCGPA();
                                             break;
-                                        case 5:break;
+                                        case 5:modStud.ac.sems.get(semNo).courses.get(courseIndex).addSupply();
+                                            break;
+                                        case 6:break;
                                     }
 
                                 }
@@ -142,6 +149,7 @@ public class TestStudentDiary {
                                             case 4:modStud.finance.printFinancials();
                                             break;
                                             case 5:modStud.scholarship.print();
+                                            System.out.println("Effective fees after scholarship:" + modStud.finance.calculateScholarship(modStud.scholarship));
                                             break;
                                             case 6:break;
                                         }
@@ -178,7 +186,7 @@ public class TestStudentDiary {
                                         System.out.println();
                                         System.out.println("1.Add attendance");
                                         System.out.println("2.View attendance");
-                                        System.out.println("3.Exit");
+                                        System.out.println("3.Go back to menu");
                                         ch8 = sc.nextInt();
                                         switch(ch8){
                                             case 1:Attendance a = new Attendance();
@@ -191,7 +199,7 @@ public class TestStudentDiary {
                                             break;
                                             case 3:break;
                                         }
-                                    }
+                                    }break;
                             case 6:modStud.h.addRecords();
                             break;
                             case 7:modStud.print();
@@ -199,7 +207,7 @@ public class TestStudentDiary {
                             case 8:break;
 
                         }
-                    }
+                    }break;
                 case 3:int ch9 = -1;
                     System.out.println("Enter roll no of student whose details should be printed");
                     roll = sc.next();
@@ -218,10 +226,10 @@ public class TestStudentDiary {
                             System.out.println("4.Print attendance");
                             System.out.println("5.Print semester details");
                             System.out.println("6.Print all details");
-                            System.out.println("7.Exit");
+                            System.out.println("7.Go back to menu");
                             ch9 = sc.nextInt();
                             switch(ch9){
-                                case 1:modStud.pd.printParentDetails();
+                                case 1:modStud.pd.printAll();
                                 break;
                                 case 2:modStud.ac.print();
                                 break;

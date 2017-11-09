@@ -28,8 +28,8 @@ public class Course implements Serializable {
     public void addCourse() {
         Scanner s = new Scanner(System.in);
         System.out.println("Enter course name and code");
-        courseName = s.next();
-        courseCode = s.next();
+        courseName = s.nextLine();
+        courseCode = s.nextLine();
     }
 
     public void CalculateInternal() {

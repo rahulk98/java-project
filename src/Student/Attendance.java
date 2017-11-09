@@ -13,7 +13,7 @@ public class Attendance implements Serializable {
     public void addAttendance(){
         Scanner s = new Scanner(System.in);
         System.out.println("Enter date");
-        this.date = s.next();
+        this.date = s.nextLine();
         this.att = true;
     }
     public String toString(){

@@ -8,9 +8,6 @@ public class FirstPeriodicalMark implements Mark, Serializable{
     public FirstPeriodicalMark(){
         mark = 0;
     }
-    public FirstPeriodicalMark(int mark){
-        this.mark = mark;
-    }
     public void setMark(int mark){
         this.mark = mark;
     }

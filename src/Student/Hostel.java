@@ -8,7 +8,9 @@ public class Hostel implements Serializable {
     int roomNo;
     public void addRecords(){
         Scanner s = new Scanner(System.in);
-        hostelName = s.next();
+
+        System.out.println("Enter hostel name and room no");
+        hostelName = s.nextLine();
         roomNo = s.nextInt();
     }
     public void setHostel(String h){

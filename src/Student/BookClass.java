@@ -21,7 +21,7 @@ public class BookClass implements Serializable {
         System.out.println("Enter Book name");
         bookName = s.next();
         System.out.println("Enter author");
-        author = s.next();
+        author = s.nextLine();
     }
     public String toString(){
         return "Book Name:" + bookName + "\nAuthor:" + author;

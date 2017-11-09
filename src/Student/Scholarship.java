@@ -14,9 +14,7 @@ public class Scholarship implements Serializable {
         Scanner s = new Scanner(System.in);
         percent = s.nextInt();
     }
-    public void upgradeSchoalarship(int percent){
-        this.percent = percent;
-    }
+
     public void print(){
         System.out.println("Scholarship percent: " + percent);
     }

@@ -11,7 +11,6 @@ public class StudentDiary implements Serializable {
     ArrayList<Attendance> att;
     Finance finance;
     Library lib;
-    Club c;
     Scholarship scholarship;
     Event ev;
     Hostel h;
@@ -31,11 +30,7 @@ public class StudentDiary implements Serializable {
     public void addAcademics(){
         ac.addCDetail();
         Scanner s = new Scanner(System.in);
-
-
         ac.addSem();
-
-
     }
     public void addFinancialDetails(){
         finance.addFinanceDetail();
@@ -44,8 +39,6 @@ public class StudentDiary implements Serializable {
         pd.printAll();
         ac.print();
         finance.printFinancials();
-        System.out.println(lib.toString());
-        c.print();
         ev.print();
         h.print();
     }

@@ -14,9 +14,6 @@ public class CGPA implements Serializable {
             }
             cgpa /= cgpa/s.size();
         }
-        public float getGpa(){
-            return cgpa;
-        }
         public String toString(){
             return '\n' + "Cumulative GPA:" + cgpa;
         }
